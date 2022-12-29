@@ -4,11 +4,13 @@ import AuthProvider from '../context/AuthProvider/AuthProvider'
 import '../styles/globals.css'
 
 export default function App({ Component, pageProps }) {
-  return <><Layout>
+  return <>
     <AuthProvider>
+    <Layout>
     <Component {...pageProps} />
+    </Layout>
     </AuthProvider>
-  </Layout>
+  
   <Toaster></Toaster>
   </>
 }

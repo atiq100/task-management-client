@@ -1,8 +1,18 @@
 import Link from "next/link";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
 
 export const Nav = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const { user, logout } = useContext(AuthContext);
+
+  const handleLogout = () => {
+    logout()
+      .then(() => {})
+      .catch((error) => console.log(error));
+  };
+
   
     return (
       <div class="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
@@ -75,12 +85,29 @@ export const Nav = () => {
               </a>
             </li>
             <li>
-              <Link href="/login"
+              {
+                user?.uid ? (
+                  <Link 
+                  onClick={handleLogout}
+                  href="/"
                 class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-purple-500 hover:bg-purple-700 focus:shadow-outline focus:outline-none"
-                aria-label="Sign up"
-                title="Sign up">
-                   Login
+                aria-label="Sign out"
+                title="Sign out">
+                   Logout
               </Link>
+                )
+                :(
+                  <Link 
+                  
+                  href="/login"
+                class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-purple-500 hover:bg-purple-700 focus:shadow-outline focus:outline-none"
+                aria-label="Sign In"
+                title="Sign in">
+                   SignIn
+              </Link>
+                )
+
+              }
              
                
               

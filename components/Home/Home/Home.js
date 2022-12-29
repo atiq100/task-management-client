@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { toast } from 'react-hot-toast';
 
 const Hero = () => {
     const [isShown, setIsShown] = useState(false);
@@ -9,6 +10,35 @@ const Hero = () => {
 
     // 👇️ or simply set it to true
     // setIsShown(true);
+  };
+
+  const handleAddTask = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const serviceName = form.taskname.value;
+    
+
+    const task = {
+      title: serviceName,
+     
+    };
+    fetch("http://localhost:5000/addtask", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        
+      },
+      body: JSON.stringify(task),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.acknowledged) {
+          toast.success("Task added successfully");
+          form.reset();
+        }
+      })
+      .catch((err) => console.log(err));
   };
 
     return (
@@ -28,11 +58,12 @@ const Hero = () => {
                 </div>
                 {
                     isShown &&
-                    <form className="flex flex-col items-center w-full mb-4 md:flex-row ">
+                    <form onSubmit={handleAddTask} className="flex flex-col items-center w-full mb-4 md:flex-row ">
             <input
               placeholder="Task name"
               required=""
               type="text"
+              name='taskname'
               className="flex-grow w-full h-12 px-3 mb-3 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none md:mr-2 md:mb-0 focus:border-purple-400 focus:outline-none focus:shadow-outline"
             />
             <button
