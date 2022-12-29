@@ -75,14 +75,15 @@ export const Nav = () => {
               </a>
             </li>
             <li>
-              <a
-                href="/"
+              <Link href="/login"
                 class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-purple-500 hover:bg-purple-700 focus:shadow-outline focus:outline-none"
                 aria-label="Sign up"
-                title="Sign up"
-              >
-                Sign up
-              </a>
+                title="Sign up">
+                   Login
+              </Link>
+             
+               
+              
             </li>
           </ul>
           <div class="lg:hidden">
@@ -175,7 +176,7 @@ export const Nav = () => {
                        </Link>
                       </li>
                       <li>
-                        <Link href="/mytask" aria-label="  My Task"
+                        <Link href="/mytask/mytask" aria-label="  My Task"
                           title="  My Task"
                           class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-purple-400">
 
