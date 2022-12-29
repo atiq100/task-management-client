@@ -55,6 +55,7 @@ export const Nav = () => {
                 Home
               </a>
             </li>
+            {user?.uid &&
             <li>
               <a
                 href="/"
@@ -65,6 +66,8 @@ export const Nav = () => {
                 Add Task
               </a>
             </li>
+}
+{user?.uid &&
             <li>
               <Link href="/mytask/mytask" aria-label=" My Task"
                 title=" My Task"
@@ -74,16 +77,19 @@ export const Nav = () => {
              
               </Link>
             </li>
+}
+{user?.uid &&
             <li>
-              <a
+              <Link
                 href="/"
                 aria-label="Completed Tasks"
                 title="Completed Tasks"
                 class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-purple-400"
               >
                 Completed Tasks
-              </a>
+              </Link>
             </li>
+}
             <li>
               {
                 user?.uid ? (
@@ -193,6 +199,7 @@ export const Nav = () => {
                         
                        </Link>
                       </li>
+                      {user?.uid &&
                       <li>
                        <Link href="/addtask" aria-label="Add Task"
                           title="Add Task"
@@ -202,6 +209,8 @@ export const Nav = () => {
                         
                        </Link>
                       </li>
+}
+{user?.uid &&
                       <li>
                         <Link href="/mytask/mytask" aria-label="  My Task"
                           title="  My Task"
@@ -212,6 +221,8 @@ export const Nav = () => {
                        
                         </Link>
                       </li>
+}
+{user?.uid &&
                       <li>
                         <a
                           href="/"
@@ -222,17 +233,35 @@ export const Nav = () => {
                           Completed Tasks
                         </a>
                       </li>
-                      
+}
                       <li>
-                        <a
-                          href="/"
-                          class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md  bg-purple-500 hover:bg-purple-700 focus:shadow-outline focus:outline-none"
-                          aria-label="Sign up"
-                          title="Sign up"
-                        >
-                          Sign up
-                        </a>
-                      </li>
+              {
+                user?.uid ? (
+                  <Link 
+                  onClick={handleLogout}
+                  href="/"
+                class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-purple-500 hover:bg-purple-700 focus:shadow-outline focus:outline-none"
+                aria-label="Sign out"
+                title="Sign out">
+                   Logout
+              </Link>
+                )
+                :(
+                  <Link 
+                  
+                  href="/login"
+                class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-purple-500 hover:bg-purple-700 focus:shadow-outline focus:outline-none"
+                aria-label="Sign In"
+                title="Sign in">
+                   SignIn
+              </Link>
+                )
+
+              }
+             
+               
+              
+            </li>
                     </ul>
                   </nav>
                 </div>

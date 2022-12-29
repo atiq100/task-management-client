@@ -1,11 +1,11 @@
 import { useRouter } from "next/router";
 import { useContext } from "react";
-import { Navigate, useLocation } from "react-router-dom";
+
 import { AuthContext } from "../context/AuthProvider/AuthProvider";
 
 
 const PrivateRoute = ({children}) => {
-    const location = useLocation()
+   
     const router = useRouter()
     const {user,loading} = useContext(AuthContext)
 
