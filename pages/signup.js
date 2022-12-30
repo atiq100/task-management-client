@@ -114,7 +114,7 @@ const SignUp = () => {
 				<input type="password" name="password"  placeholder="*****" className="w-full px-3 py-2 border rounded-md dark:border-gray-700  dark:text-gray-400 focus:dark:border-sky-400" />
 			</div>
 		</div>
-		<button type="submit" className="w-full px-8 py-3 font-semibold rounded-md bg-sky-500/100 dark:text-gray-900">Sign up</button>
+		<button type="submit" className="w-full px-8 py-3 font-semibold rounded-md bg-purple-500 hover:bg-purple-700  text-white">Sign up</button>
         <p>{error}</p>
 	</form>
 </div>

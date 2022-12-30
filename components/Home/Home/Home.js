@@ -18,11 +18,11 @@ const Hero = () => {
   const handleAddTask = (event) => {
     event.preventDefault();
     const form = event.target;
-    const serviceName = form.taskname.value;
+    const taskName = form.taskname.value;
     const email = user?.email
 
     const task = {
-      title: serviceName,
+      title: taskName,
       email,
       postDate:Date()
     };
@@ -60,7 +60,7 @@ const Hero = () => {
                     <a rel="noopener noreferrer"  onClick={handleClick} className="cursor-pointer px-8 py-3 text-lg font-semibold rounded bg-violet-400 text-gray-900">Add Task</a>
                     {
                       user?.uid &&
-                      <a rel="noopener noreferrer" href="" className="px-8 py-3 text-lg font-semibold border rounded border-gray-100">My Task</a>
+                      <a rel="noopener noreferrer" href="/mytask/mytask" className="px-8 py-3 text-lg font-semibold border rounded border-gray-100">My Task</a>
                     }
 
                 </div>

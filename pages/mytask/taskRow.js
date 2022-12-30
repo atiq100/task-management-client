@@ -1,12 +1,12 @@
 import React from 'react';
 
 const TaskRow = ({task}) => {
-    const{title,postDate}=task
+    const{title,postDate,image}=task
     return (
         <tr className="border-b border-opacity-20 dark:border-gray-700 dark:bg-gray-900">
 					
 					<td className="p-3">
-                    <img alt="" className="w-16 h-16 rounded  dark:bg-gray-500 " src="https://source.unsplash.com/40x40/?portrait?1" />
+                    <img alt="" className="w-16 h-16 rounded  dark:bg-gray-500 " src={image} />
 					</td>
 					<td className="p-3">
 						<p className='text-lg mb-2'>{title}</p>
