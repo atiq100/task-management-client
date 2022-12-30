@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
-import TaskRow from "./taskRow";
-
+import TaskRowNew from '../../components/TaskRowNew/TaskRowNew'
+import { Fragment } from "react";
 
 const mytask = () => {
 	const {user} = useContext(AuthContext)
@@ -43,14 +43,14 @@ const mytask = () => {
 			<tbody>
 				
 			{
-				tasks.map(task=><TaskRow
-                key={task._id}
+				tasks?.map(task=><TaskRowNew
+                key={task?._id}
                 task={task}
                // handleDelete={handleDelete}
                 //handleUpdate={handleUpdate}
                // handleInputChange={handleInputChange}
                 //handleUpdateStatus={handleUpdateStatus}
-                ></TaskRow>)
+                ></TaskRowNew>)
 }
 				
 				
