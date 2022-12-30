@@ -1,4 +1,4 @@
-import React from 'react';
+
 
 const TaskRow = ({task}) => {
     const{title,postDate,image}=task
