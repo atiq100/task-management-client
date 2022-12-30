@@ -26,7 +26,7 @@ const Hero = () => {
       email,
       postDate:Date()
     };
-    fetch("http://localhost:5000/addtask", {
+    fetch("https://task-management-server-xi.vercel.app/addtask", {
       method: "POST",
       headers: {
         "content-type": "application/json",

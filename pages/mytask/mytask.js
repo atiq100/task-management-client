@@ -9,7 +9,7 @@ const mytask = () => {
     
 
 	useEffect(()=>{
-        fetch(`http://localhost:5000/addtask?email=${user?.email}`,{
+        fetch(`https://task-management-server-xi.vercel.app/addtask?email=${user?.email}`,{
            
         })
         .then(res=>{

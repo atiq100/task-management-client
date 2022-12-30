@@ -44,7 +44,7 @@ export const Nav = () => {
             </span>
          
          </Link>
-          <ul className="flex items-center hidden space-x-8 lg:flex">
+          <ul className="flex items-center  space-x-8 lg:flex">
             <li>
               <Link
                 href="/"
